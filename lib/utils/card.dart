@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app_ui/model/model_class_card.dart';
 
-class AccountCard extends StatelessWidget {
-  const AccountCard({Key? key}) : super(key: key);
+import '../model/model_class_card.dart';
+import '../model/model_class_card.dart';
+
+class CardWidget extends StatelessWidget {
+  final CardModelClass cardObject;
+  const CardWidget({Key? key, required this.cardObject}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +16,7 @@ class AccountCard extends StatelessWidget {
         padding: EdgeInsets.all(20),
         width: 300,
         decoration: BoxDecoration(
-          color: Colors.deepOrange[200],
+          color: cardObject.color,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -31,7 +36,7 @@ class AccountCard extends StatelessWidget {
               height: 10,
             ),
             Text(
-              "50.0 Rs",
+              cardObject.getBalance().toString() + " Rs",
               style: TextStyle(
                 fontSize: 28,
                 color: Colors.white,
@@ -44,14 +49,14 @@ class AccountCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "***** 31202",
+                  cardObject.getAccountNumber().toString(),
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,
                   ),
                 ),
                 Text(
-                  "10/12,23",
+                  cardObject.getExpiryMonth().toString() +"/"+ cardObject.getExpiryYear().toString(),
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,

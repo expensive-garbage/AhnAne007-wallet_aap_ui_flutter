@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:wallet_app_ui/model/model_class_card.dart';
 import 'package:wallet_app_ui/utils/card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  final _controller = PageController();
+  late Future<List<CardModelClass>> cardList;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,14 +62,36 @@ class _HomePageState extends State<HomePage> {
               height: 151,
               //color: Colors.red,
               child: PageView(
+                controller: _controller,
                 scrollDirection: Axis.horizontal,
                 children: [
-                  AccountCard(),
-                  AccountCard(),
-                  AccountCard(),
+                  CardWidget(
+                    cardObject: CardModelClass(
+                        12, 23, 5010, 3120267449878, Colors.deepPurpleAccent),
+                  ),
+                  CardWidget(
+                    cardObject: CardModelClass(
+                        12, 23, 7090, 3120267449878, Colors.orange),
+                  ),
+                  CardWidget(
+                    cardObject: CardModelClass(
+                        12, 23, 1567, 3120267449878, Colors.lightGreen),
+                  ),
                 ],
               ),
             ),
+            SizedBox(
+              height: 25,
+            ),
+            // A controller directly related to the showing options of it
+            SmoothPageIndicator(
+              controller: _controller,
+              count: 3,
+              effect: ExpandingDotsEffect(
+                activeDotColor: Colors.blueGrey.shade700,
+              ),
+            ),
+
             //row of options
 
             //column of options
