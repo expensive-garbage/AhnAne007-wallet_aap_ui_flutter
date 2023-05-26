@@ -47,8 +47,8 @@ I can view my transaction history, helping me analyze my spending habits and mak
 ## Architecture Diagram
 
 Below is the diagram to present the communication of the main components of this app.
-![WalletApp_diagram](https://github.com/AhnAne007/wallet_aap_ui_flutter/assets/89075855/f12612c8-56c6-4e30-b8b1-724d3ba7414e)
-!
+![WalletApp_diagram](https://github.com/AhnAne007/wallet_aap_ui_flutter/assets/89075855/f142c8cd-a0ad-4ad6-ab5d-cea54e8675f4)
+
 
 ## ERD Diagram
 Below is the ERD diagram of this app.
