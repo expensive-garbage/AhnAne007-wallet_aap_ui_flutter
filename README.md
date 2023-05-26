@@ -53,7 +53,8 @@ Below is the diagram to present the communication of the main components of this
 ## ERD Diagram
 Below is the ERD diagram of this app.
 
-![ERDWalletApp](https://github.com/AhnAne007/wallet_aap_ui_flutter/assets/89075855/e8821673-208d-4c80-b975-9ae3f357932d)
+![ERDWalletApp](https://github.com/AhnAne007/wallet_aap_ui_flutter/assets/89075855/7ee030fe-859a-4acc-992c-c5638209de62)
+
 
 
 
