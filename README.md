@@ -2,9 +2,11 @@
 
 Flutter project for making the UI of the wallet app.
 
-## Getting Started
+## Architecture Diagram
 
-This project is a starting point for a Flutter application.
+Below is the diagram to present the communication of the main components of this app.
+![WalletApp_diagram](https://github.com/AhnAne007/wallet_aap_ui_flutter/assets/89075855/3fc28f2a-b096-4082-aa5d-bb6d9203cea1)
+
 
 A few resources to get you started if this is your first Flutter project:
 
