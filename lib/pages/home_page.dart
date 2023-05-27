@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_app_ui/model/model_class_card.dart';
-import 'package:wallet_app_ui/utils/card.dart';
+import 'package:wallet_app_ui/pages/user_send_page.dart';
+import 'package:wallet_app_ui/widgets/card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
-
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -93,7 +93,55 @@ class _HomePageState extends State<HomePage> {
             ),
 
             //row of options
-
+            SizedBox(
+              height: 25,
+            ),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return UsersPage();
+                            },
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 100,
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade600, blurRadius: 20),
+                          ],
+                        ),
+                        child: Center(
+                          child: Image.asset("assets/send_money.png"),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Send",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[700],
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
             //column of options
 
             // navigation bar

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app_ui/model/model_class_card.dart';
 
-import '../model/model_class_card.dart';
-import '../model/model_class_card.dart';
 
 class CardWidget extends StatelessWidget {
   final CardModelClass cardObject;
