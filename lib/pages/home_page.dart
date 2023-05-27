@@ -3,6 +3,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_app_ui/model/model_class_card.dart';
 import 'package:wallet_app_ui/pages/user_send_page.dart';
 import 'package:wallet_app_ui/widgets/card.dart';
+import 'package:wallet_app_ui/widgets/list_tile_button_widget.dart';
+import 'package:wallet_app_ui/widgets/shadow_button_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,17 +20,50 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.pinkAccent,
+        child: Icon(Icons.monetization_on),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.home,
+                  size: 32,
+                  color: Colors.deepOrange,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.person,
+                  size: 32,
+                  color: Colors.deepPurpleAccent,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Column(
           children: [
             // app bar
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Text(
                         "My",
@@ -46,12 +81,12 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.grey[400],
                     ),
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                   ),
                 ],
               ),
@@ -80,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             // A controller directly related to the showing options of it
@@ -96,54 +131,55 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 25,
             ),
-            Row(
-              children: [
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return UsersPage();
-                            },
-                          ),
-                        );
-                      },
-                      child: Container(
-                        height: 100,
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.shade600, blurRadius: 20),
-                          ],
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return UsersPage();
+                          },
                         ),
-                        child: Center(
-                          child: Image.asset("assets/send_money.png"),
-                        ),
-                      ),
+                      );
+                    },
+                    child: ShadowButtonWidget(
+                      iconImagePath: "assets/send_money.png",
+                      buttonText: "Send",
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Send",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[700],
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                  ),
+                  ShadowButtonWidget(
+                      iconImagePath: "assets/payment.png", buttonText: "Pay"),
+                  ShadowButtonWidget(
+                      iconImagePath: "assets/bill.png", buttonText: "Bill"),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: 5,
             ),
             //column of options
 
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Column(
+                children: [
+                  ListTileButtonWidget(
+                      imageAsset: "assets/statistics.png",
+                      tileHeader: "Statistics",
+                      tileSubName: "Payments and Income"),
+                  ListTileButtonWidget(
+                      imageAsset: "assets/transaction.png",
+                      tileHeader: "Transaction",
+                      tileSubName: "Transaction History"),
+                ],
+              ),
+            )
             // navigation bar
           ],
         ),
