@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "995884962664",
+    "project_id": "walletappflutter-6b80f",
+    "storage_bucket": "walletappflutter-6b80f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995884962664:android:dcd64a53584d78b925bcdd",
+        "android_client_info": {
+          "package_name": "com.example.wallet_app_ui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlgi3cVmO998NQ9oWY7LEwUy-mt4uz4S4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
