@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallet_app_ui/model/model_class_card.dart';
@@ -16,6 +18,48 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _controller = PageController();
   late Future<List<CardModelClass>> cardList;
+  late String balance;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchBalance();
+  }
+
+  void _fetchBalance() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      DocumentSnapshot snapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .get();
+      if (snapshot.exists) {
+        setState(() {
+          balance = (snapshot.data() as Map<String, dynamic>)['balance'].toString();
+        });
+      } else {
+        setState(() {
+          balance = 'No data available';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        balance = 'Error occurred';
+      });
+      print(e.toString());
+    }
+  }
+
+  void _showSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +67,10 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.pinkAccent,
         child: Icon(Icons.monetization_on),
-        onPressed: () {},
+        onPressed: () {
+          _fetchBalance();
+          _showSnackbar("Your Current Balnce is "+balance);
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

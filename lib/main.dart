@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app_ui/pages/login_page.dart';
+import 'package:wallet_app_ui/resources/authenticate.dart';
 
 import 'pages/home_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: const LogInPage(),
+      home: Authenticate(),
     );
   }
 }
