@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app_ui/pages/transaction_page.dart';
 
 class UserTileWidget extends StatefulWidget {
   final String userName;
@@ -20,15 +21,15 @@ class _GroupTileState extends State<UserTileWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (_) =>  ChatScreen(
-        //       groupId: widget.groupId,
-        //       groupName: widget.groupName,
-        //       userName: widget.userName,
-        //     ),
-        //   ),
-        // );
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) =>  TransactionPage(
+              userToId: widget.userToId,
+              userToName: widget.userToName,
+              userName: widget.userName,
+            ),
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
