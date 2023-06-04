@@ -89,11 +89,10 @@ class _LogInPageState extends State<LogInPage> {
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    elevation: 0,
+                    elevation: 0, backgroundColor: Colors.lightGreenAccent[400],
                     shape: const StadiumBorder(),
                     maximumSize: const Size(double.infinity, 50),
                     minimumSize: const Size(double.infinity, 50),
-                    primary: Colors.lightGreenAccent[400],
                     //padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                     textStyle:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
